@@ -25,7 +25,7 @@
 	)
 )
 
-(defn memq [element lizt]
+(defn memq [element lizt] ;;made for the intersect def might not need later 
 	(lazy-seq
 		(cond
 			(nil? lizt)
@@ -46,3 +46,4 @@
 		:else (intersect (rest lizt1) lizt2)
 	)
 )
+
