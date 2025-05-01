@@ -8,6 +8,10 @@ import java.util.function.Function;
 import clojure.java.api.Clojure;
 import clojure.lang.IFn;
 
+/**
+ * Unit tests comparing Java and Clojure implementations
+ * The tests include: member, append, same, map, and intersect
+ */
 class UnitTests {
 	static IFn evanMember, cljMap, cljIntersect;
 	static IFn jessAppend, jessSame;
@@ -25,6 +29,7 @@ class UnitTests {
 		jessSame = Clojure.var("Jess","same");
 	}
 
+	// Verifies if member correctly detects if an element is in a list
 	@Test
 	void testMember() {
 		var list = List.of("X", "Y", "Z");
@@ -34,6 +39,7 @@ class UnitTests {
 		assertFalse((Boolean) evanMember.invoke("A", list));
 	}
 
+	// Verifies that two lists are combined into one list correctly
 	@Test
 	void testAppend() {
 		var list1 = List.of("a", "b");
@@ -44,6 +50,7 @@ class UnitTests {
 		assertEquals(expected, jessAppend.invoke(list1,list2));
 	}
 
+	// Makes sure that the lists are equal
 	@Test
 	void testSame() {
 		var list1 = List.of(1, 2, 3);
@@ -57,6 +64,7 @@ class UnitTests {
 		assertFalse((Boolean) jessSame.invoke(list1, list3));
     }
 
+	// Tests applying a function to each element in a list
 	@Test
 	void testMap() {
 		IFn cljSeq = Clojure.var("clojure.core", "seq");
@@ -74,6 +82,7 @@ class UnitTests {
 
     }
 
+	// Checks that intersect returns the common elements bewteen lists
 	@Test
 	void testIntersect() {
 		var list1 = List.of("a", "b", "c");
