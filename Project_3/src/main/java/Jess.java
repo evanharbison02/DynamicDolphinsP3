@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Jess {
-	public static boolean member (Object atm, List<Object> lizt) {
+	public static boolean member (String atm, List<String> lizt) {
 		if (lizt == null || lizt.isEmpty()) {
 			return false;
 		}
@@ -15,7 +15,7 @@ public class Jess {
 		return member(atm, lizt.subList(1, lizt.size()));
 	}
 
-	public static List<Object> intersect (List<Object> lizt1, List<Object> lizt2) {
+	public static List<Object> intersect (List<String> lizt1, List<String> lizt2) {
 		List<Object> listReturn = new ArrayList<Object>();
 
 		if (lizt1 == null || lizt1.isEmpty()) {

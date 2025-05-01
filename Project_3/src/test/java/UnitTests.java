@@ -15,7 +15,6 @@ class UnitTests {
 	@BeforeAll
 	static void requires() {
         var require = Clojure.var("clojure.core", "require");
-        require.invoke(Clojure.read("Alice"));
         require.invoke(Clojure.read("Jess"));
 		require.invoke(Clojure.read("Evan"));
 

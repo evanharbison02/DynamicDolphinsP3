@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class Matt {
-	public static List<Object> append (List<Object> lizt1, List<Object> lizt2) {
+	public static List<Object> append (List<String> lizt1, List<String> lizt2) {
 		if (lizt1 == null || lizt2 == null) return null;
 		List<Object> listReturn = new ArrayList<Object>();
 		for (Object obj: lizt1) listReturn.add(obj);
@@ -19,7 +19,7 @@ public class Matt {
 		return listReturn;
 	}
 
-	public static boolean same (List<Object> liztA, List<Object> liztB) {
+	public static boolean same (List<Integer> liztA, List<Integer> liztB) {
 		if (liztA == null || liztB == null) { 
 			if (liztA == null && liztB == null) return true;
 			return false;
