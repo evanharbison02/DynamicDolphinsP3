@@ -59,6 +59,8 @@ class UnitTests {
 
 	@Test
 	void testMap() {
+		IFn cljSeq = Clojure.var("clojure.core", "seq");
+
 		var input = List.of(1, 2, 3);
         var expected = List.of(2, 4, 6);
         Function<Integer, Integer> doubler = x -> x * 2;
@@ -68,7 +70,8 @@ class UnitTests {
 		IFn eval = Clojure.var("clojure.core", "eval");
 		IFn readString = Clojure.var("clojure.core", "read-string");
 		IFn cljDoubler = (IFn) eval.invoke(readString.invoke("(fn [x] (* 2 x))"));
-		assertEquals(List.of(2L, 4L, 6L), cljMap.invoke(cljDoubler, input));
+		assertEquals(List.of(2L, 4L, 6L), cljMap.invoke(cljDoubler, cljSeq.invoke(input)));
+
     }
 
 	@Test

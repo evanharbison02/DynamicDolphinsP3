@@ -1,21 +1,16 @@
 (ns Evan)
 (defn member [atm lizt]
-	(cond 
-		(nil? lizt) 
-			false
-		(identical? atm (first lizt))
-			true
-		:else (member atm (rest lizt) )
-	
-	)
-
-)
+  (loop [lst lizt]
+    (cond 
+      (empty? lst) false   ;; Use (empty? lst) to check for an empty list
+      (identical? atm (first lst)) true
+      :else (recur (rest lst)))))  ;; Recurse with the rest of the list
 
 (defn map [fun lizt]
 	(cond 
 		(nil? lizt)
 			'()
-		:else (cons fun (first lizt) 
+		:else (cons (fun (first lizt)) 
 			(map fun (rest lizt)))
 	)
 )
