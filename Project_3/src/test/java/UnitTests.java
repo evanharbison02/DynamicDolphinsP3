@@ -19,7 +19,7 @@ class UnitTests {
 		require.invoke(Clojure.read("Evan"));
 
 		evanMember = Clojure.var("Evan","member");
-		cljMap = Clojure.var("Evan","map");
+		cljMap = Clojure.var("Evan","evanMap");
 		cljIntersect = Clojure.var("Evan","intersect");
 		jessAppend = Clojure.var("Jess", "append");
 		jessSame = Clojure.var("Jess","same");
