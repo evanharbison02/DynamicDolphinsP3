@@ -4,7 +4,7 @@
 	(first (rest (rest list)))
 )
 
-(defn member [atm lizt]]
+(defn member [atm lizt]
 	(cond 
 		(nil? lizt) 
 			false
@@ -20,7 +20,7 @@
 	(cond 
 		(nil? lizt)
 			'()
-		:else (cons fun (first lizt) 
+		:else (cons (fun (first lizt)) 
 			(map fun (rest lizt)))
 	)
 )
@@ -30,7 +30,7 @@
 		(cond
 			(nil? lizt)
 				false
-			(identical? (fist lizt) element)
+			(identical? (first lizt) element)
 				lizt
 			:else (memq element (rest lizt))
 		)
