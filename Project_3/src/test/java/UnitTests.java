@@ -9,7 +9,7 @@ import clojure.java.api.Clojure;
 import clojure.lang.IFn;
 
 class UnitTests {
-	static IFn aliceThird, aliceMember, cljMap, cljIntersect;
+	static IFn evanMember, cljMap, cljIntersect;
 	static IFn jessAppend, jessSame;
 
 	@BeforeAll
@@ -18,8 +18,7 @@ class UnitTests {
         require.invoke(Clojure.read("Jess"));
 		require.invoke(Clojure.read("Evan"));
 
-		aliceThird = Clojure.var("Alice", "third");
-		aliceMember = Clojure.var("Evan","member");
+		evanMember = Clojure.var("Evan","member");
 		cljMap = Clojure.var("Evan","map");
 		cljIntersect = Clojure.var("Evan","intersect");
 		jessAppend = Clojure.var("Jess", "append");
@@ -27,19 +26,12 @@ class UnitTests {
 	}
 
 	@Test
-	void testThird() {
-		var list = List.of("A", "B", "C", "D", "E");
-		assertEquals("C", Alice.third(list));
-		assertEquals("C", aliceThird.invoke(list));
-	}
-
-	@Test
 	void testMember() {
 		var list = List.of("X", "Y", "Z");
 		assertTrue(Jess.member("Y", list));
 		assertFalse(Jess.member("A", list));
-		assertTrue((Boolean) aliceMember.invoke("Y", list));
-		assertFalse((Boolean) aliceMember.invoke("A", list));
+		assertTrue((Boolean) evanMember.invoke("Y", list));
+		assertFalse((Boolean) evanMember.invoke("A", list));
 	}
 
 	@Test
@@ -77,7 +69,6 @@ class UnitTests {
 		IFn readString = Clojure.var("clojure.core", "read-string");
 		IFn cljDoubler = (IFn) eval.invoke(readString.invoke("(fn [x] (* 2 x))"));
 		assertEquals(List.of(2L, 4L, 6L), cljMap.invoke(cljDoubler, input));
-
     }
 
 	@Test

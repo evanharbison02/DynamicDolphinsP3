@@ -1,4 +1,5 @@
-(defn member [atm lizt]]
+(ns Evan)
+(defn member [atm lizt]
 	(cond 
 		(nil? lizt) 
 			false
@@ -24,7 +25,7 @@
 		(cond
 			(nil? lizt)
 				false
-			(identical? (fist lizt) element)
+			(identical? (first lizt) element)
 				lizt
 			:else (memq element (rest lizt))
 		)
@@ -33,7 +34,7 @@
 
 (defn intersect [lizt1 lizt2]
 	(cond 
-		(nul? lizt1)
+		(nil? lizt1)
 			'()
 		(memq (first lizt1) lizt2)
 			(cons (first lizt1) (intersect (rest lizt1) lizt2))

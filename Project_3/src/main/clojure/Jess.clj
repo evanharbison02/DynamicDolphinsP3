@@ -1,4 +1,4 @@
-
+(ns Jess)
 (defn append [lizt1 lizt2]
   (cond
     (empty? lizt1) lizt2
